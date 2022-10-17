@@ -31,8 +31,10 @@ namespace quickSort
                     }
                     else if (mode == 5)
                         Console.WriteLine(list);
-                    else if (mode == 6)
-                        list = list.Sort();
+                    else if (mode == 6){
+		list = list.Sort();
+		Console.WriteLine(list.GetCount());
+	        }
                 }
                 catch (Exception e)
                 {

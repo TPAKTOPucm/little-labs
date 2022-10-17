@@ -6,9 +6,15 @@ using System.Threading.Tasks;
 
 namespace quickSort {
 	internal class MyList {
+		private static int count;
 		private SafonovDM firstElement;
 		private SafonovDM lastElement;
 		public int Length {get; private set;}
+		public int GetCount() {
+			int count = MyList.count;
+			MyList.count = 0;
+			return count;
+		}
 		private SafonovDM GetElement(int index) {
 			SafonovDM tmp = firstElement;
 			for (int i = 0; i < index; i++) {
@@ -86,6 +92,7 @@ namespace quickSort {
 				else
 					min.Add(tmp.Value);
 				tmp = tmp.Next;
+				count++;
 			}
 			min = min.Sort();
 			max = max.Sort();
