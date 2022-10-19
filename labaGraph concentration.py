@@ -46,13 +46,17 @@ def getStraitMatrix(matrix):
         resMatrix = xorMatrix(resMatrix, prevMatrix)
     for i in range(len(resMatrix)):
         resMatrix[i][i]=1
+    print("матрица достижимости")
+    for i in resMatrix:
+        print(i)
     return andMatrix(resMatrix)
 
 G = nx.DiGraph()
 n = int(input("Введите количество вершин графа "))
 print("Введите матрицу смежности:")
 matrixPrev = [list(map(int, input().split(" "))) for i in range(n)]
-matrixStrait = getStraitMatrix(matrixPrev)
+matrixStrait = getStraitMatrix([copyRow[:] for copyRow in matrixPrev])
+print("матрица S")
 for i in matrixStrait:
     print(i)
 
@@ -71,16 +75,16 @@ for i in range(n):
 print("Сильные компоненты")
 for i in straitComponents:
     print(i)
-print("Кончились)")
-matrix = [[0]*len(straitComponents)]*len(straitComponents)
+print("Матрица смежности сильных компонент")
+matrix = [[0]*len(straitComponents) for i in range(len(straitComponents))]
 for i in range(n):
     for j in range(n):
         if(matrixPrev[i][j] == 1):
             startComponent = 0;
             endComponent = 0;
-            while (not(i in straitComponents[startComponent])):
+            while (i not in straitComponents[startComponent]):
                 startComponent+=1
-            while (not(j in straitComponents[endComponent])):
+            while (j not in straitComponents[endComponent]):
                 endComponent+=1
             matrix[startComponent][endComponent] = 1
 for i in range(len(matrix)):
@@ -92,7 +96,7 @@ for i in matrix:
 for row in range(len(matrix)):
     for column in range(len(matrix)):
         if(matrix[row][column]==1):
-            G.add_edge(row+1, column+1)
-plt.title("Граф, построенный на основе матрицы смежности")
+            G.add_edge(row, column)
+plt.title("Концентрация графа")
 nx.draw(G, with_labels=True, node_size = 200, node_color = 'purple', font_color = 'black')
 plt.show()
