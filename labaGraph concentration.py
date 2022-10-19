@@ -9,15 +9,6 @@ def matrixMultiplication(A, B):
                 result[row][column]+=A[row][i]*B[i][column]
     return result
 
-def transpose(matrix):
-    matrix = matrix
-    for i in range(len(matrix)):
-        for j in range(i, len(matrix)):
-            t = matrix[i][j]
-            matrix[i][j] = matrix[j][i]
-            matrix[j][i] = t
-    return matrix
-
 def xorMatrix(A, B):
     for i in range(len(A)):
         for j in range(len(A[0])):
@@ -53,8 +44,14 @@ def getStraitMatrix(matrix):
 
 G = nx.DiGraph()
 n = int(input("Введите количество вершин графа "))
-print("Введите матрицу смежности:")
-matrixPrev = [list(map(int, input().split(" "))) for i in range(n)]
+matrixPrev = []
+for i in range(n):
+    matrixPrev.append([0]*n)
+    for j in list(map(int, input("Введите вершины, с которыми соединена "+str(i)+" вершина ").split(" "))):
+        matrixPrev[i][j] = 1
+print("матрица смежности")
+for i in matrixPrev:
+    print(i)
 matrixStrait = getStraitMatrix([copyRow[:] for copyRow in matrixPrev])
 print("матрица S")
 for i in matrixStrait:
