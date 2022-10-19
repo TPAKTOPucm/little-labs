@@ -2,7 +2,7 @@ import networkx as nx
 import matplotlib.pyplot as plt
 import random
 def matrixMultiplication(A, B):
-    result = [[0]*len(A)]*len(B[0])
+    result = [[0]*len(A) for i in range(len(B[0]))]
     for row in range(len(A)):
         for column in range(len(A)):
             for i in range(len(B)):
@@ -95,5 +95,5 @@ for row in range(len(matrix)):
         if(matrix[row][column]==1):
             G.add_edge(row, column)
 plt.title("Концентрация графа")
-nx.draw(G, with_labels=True, node_size = 200, node_color = 'purple', font_color = 'black')
+nx.draw(G, with_labels=True, node_size = 200, node_color = 'purple', font_color = 'white')
 plt.show()
