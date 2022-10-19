@@ -2,27 +2,41 @@ import networkx as nx
 import matplotlib.pyplot as plt
 import random
 def matrixMultiplication(A, B):
-    result = []
+    result = [[0]*len(A)]*len(B[0])
     for row in range(len(A)):
-        result.append([])
         for column in range(len(A)):
-            result[row].append(0);
             for i in range(len(B)):
                 result[row][column]+=A[row][i]*B[i][column]
     return result
 
 def transpose(matrix):
-    result = matrix
+    matrix = matrix
     for i in range(len(matrix)):
-        for j in range(len(matrix)):
-            result[i][j] = matrix[j][i]
-    return result
+        for j in range(i, len(matrix)):
+            t = matrix[i][j]
+            matrix[i][j] = matrix[j][i]
+            matrix[j][i] = t
+    return matrix
 
 def xorMatrix(A, B):
     for i in range(len(A)):
         for j in range(len(A[0])):
-            if A[i][j] > 0 and B[i][j] > 0:
+            if A[i][j] > 0 or B[i][j] > 0:
                 A[i][j] = 1
+            else:
+                A[i][j] = 0
+    return A
+    
+def andMatrix(A):
+    for i in range(len(A)):
+        for j in range(len(A[0])):
+            if A[i][j] > 0 and A[j][i] > 0:
+                A[i][j] = 1
+                A[j][i] = 1
+            else:
+                A[i][j] = 0
+                A[j][i] = 0
+    return A
 
 def getStraitMatrix(matrix):
     prevMatrix = matrix
@@ -32,8 +46,9 @@ def getStraitMatrix(matrix):
         resMatrix = xorMatrix(resMatrix, prevMatrix)
     for i in range(len(resMatrix)):
         resMatrix[i][i]=1
-    return xorMatrix(resMatrix, transpose(resmMtrix))
+    return andMatrix(resMatrix)
 
+G = nx.DiGraph()
 n = int(input("Введите количество вершин графа "))
 print("Введите матрицу смежности:")
 matrixPrev = [list(map(int, input().split(" "))) for i in range(n)]
@@ -56,16 +71,16 @@ for i in range(n):
 print("Сильные компоненты")
 for i in straitComponents:
     print(i)
-
+print("Кончились)")
 matrix = [[0]*len(straitComponents)]*len(straitComponents)
 for i in range(n):
     for j in range(n):
         if(matrixPrev[i][j] == 1):
             startComponent = 0;
             endComponent = 0;
-            while not(i in straitComponents[startComponent]):
+            while (not(i in straitComponents[startComponent])):
                 startComponent+=1
-            while not(i in straitComponents[endComponent]):
+            while (not(j in straitComponents[endComponent])):
                 endComponent+=1
             matrix[startComponent][endComponent] = 1
 for i in range(len(matrix)):
