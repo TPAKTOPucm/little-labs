@@ -66,6 +66,10 @@ while (i<len(sets)):
 			j+=1
 	i+=1
 
+maxlen = 0;
 for i in sets:
 	print(i)
+	if(len(i) > maxlen):
+		maxlen = len(i)
+print("число независимости",maxlen)
 
