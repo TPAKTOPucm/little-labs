@@ -2,6 +2,10 @@ import networkx as nx
 import matplotlib.pyplot as plt
 import random
 
+def colorSort(array, graph):
+	graph.sort(array)
+	return getColorArray(array)
+
 def getColorArray(matrix):
     colors = []
     for i in range(len(matrix)):
@@ -27,14 +31,18 @@ matrix = []
 connections = []
 for i in range(n):
     matrix.append([0 for i in range(n)])
-    connections.append(list(map(int, input("C какими вершинами соединена вершина "+str(i+1)).split(" "))))
+    connections.append(list(map(int, input("C какими вершинами соединена вершина "+str(i+1)+" ").split(" "))))
     for j in connections[i]:
         matrix[i][int(j)-1] = 1
-
 
 for i in range(len(connections)):
     for j in connections[i]:
         G.add_edge(i+1, j)
 
-nx.draw(G, with_labels=True, node_size = 200, node_color=getColorArray(matrix))
+if input("выберите способ (1/2)") == "1":
+	colorArray = getColorArray(matrix)
+else:
+	colorArray = colorSort(matrix, G)
+
+nx.draw_circular(G, with_labels=True, node_size = 200, node_color=colorArray)
 plt.show()
