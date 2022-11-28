@@ -1,1 +1,18 @@
-e 
+def minimum_spanning_tree(nodes):
+    marks = [[1, 999]] for _ in range(len(nodes))
+    tree = []
+    for i in range(len(nodes)):
+        tree.append(minIndex(marks))
+        for connection in nodes[tree[i]][1]:
+            if marks[connection[0]][1] > connection[1]:
+                marks[connection[0]] = [i, connection[1]]
+    return tree
+        
+def minIndex(nodes):
+    min = nodes[0][1]
+    index = 0
+    for i, j in enum(nodes):
+        if j[1]<min:
+            min = j[1]
+            index = i
+    return index
