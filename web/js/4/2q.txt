@@ -1,0 +1,4 @@
+function subrtact(a,b) {
+    console.log(a-b)
+}
+subrtact(5+1,6)

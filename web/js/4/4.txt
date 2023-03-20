@@ -1,0 +1,17 @@
+function progressBar(percent) {
+    let numOfSymbols = percent/10
+    let str = "["
+    for (let i = 0; i < numOfSymbols; i++) 
+        str+="%%"
+    numOfSymbols = 10 - numOfSymbols
+    for (let i = 0; i < numOfSymbols; i++) 
+        str+="."
+    str+="]"
+    if (percent == 100){
+        console.log(percent+"% Complete!")
+        console.log(str)
+    } else {
+        console.log(percent+"% "+str)
+        console.log("Still loading...")
+    }
+}

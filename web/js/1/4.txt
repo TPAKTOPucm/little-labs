@@ -1,0 +1,34 @@
+function hotel(ammount, type, day) {
+    let k = 1
+    if(type == "Students"){
+        if(ammount>=30)
+            k=0.85
+        if(day == "Friday"){
+            console.log((k*ammount*8.45).toFixed(2))
+        }else if(day == "Saturday"){
+            console.log((k*ammount*9.8).toFixed(2))
+        }else if(day == "Sunday"){
+            console.log((k*ammount*10.46).toFixed(2))
+        }
+    }else if(type == "Regular"){
+        if(ammount >= 10 && ammount <= 20)
+            k=0.95
+        if(day == "Friday"){
+            console.log((k*ammount*15).toFixed(2))
+        }else if(day == "Saturday"){
+            console.log((k*ammount*20).toFixed(2))
+        }else if(day == "Sunday"){
+            console.log((k*ammount*22.5).toFixed(2))
+               }
+    } else if(type == "Workers"){
+        if(ammount>=100)
+            ammount-=10
+        if(day == "Friday"){
+            console.log((ammount*10.9).toFixed(2))
+        }else if(day == "Saturday"){
+            console.log((ammount*15.6).toFixed(2))
+        }else if(day == "Sunday"){
+            console.log((ammount*16).toFixed(2))
+        }
+    }
+}

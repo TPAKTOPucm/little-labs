@@ -1,0 +1,15 @@
+function whoIsIt(age){
+    if(age<0){
+        console.log("error")
+    } else if (age<3) {
+        console.log("младенец")
+    } else if (age<14) {
+        console.log("ребёнок")
+    } else if (age<20) {
+        console.log("подросток") 
+    } else if(age<66) {
+        console.log("взрослый")
+    }else {
+        console.log("пожилой")
+    }
+}

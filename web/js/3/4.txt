@@ -1,0 +1,21 @@
+function niceMatrix(matrix) {
+    let sum = 0
+    matrix[0].forEach(row => sum+=row)
+    for (let col = 1; col < matrix.length; col++){
+        let tmpSum = 0;
+        matrix[col].forEach(row => tmpSum+=row)
+        if (sum != tmpSum){
+            console.log(false)
+            return
+        }
+    }
+    for (let row = 0; row < matrix.length; row++){
+        let tmpSum = 0;
+        matrix.forEach(col => tmpSum+=col[row])
+        if (sum != tmpSum){
+            console.log(false)
+            return
+        }
+    }
+    console.log(true)
+}

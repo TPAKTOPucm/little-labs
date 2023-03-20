@@ -1,0 +1,8 @@
+function rotateArray(array, rotations) {
+  rotations%=array.length
+  for (let i = 0; i < rotations; i++) {
+    let elem = array.shift()
+    array.push(elem)
+  }
+  console.log(array)
+}

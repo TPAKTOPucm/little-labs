@@ -1,0 +1,66 @@
+<html><head>
+    <title>Стилизованная статья</title>
+</head>
+<body>
+    <style>
+        table tr:nth-child(odd) td {
+            background-color:rgb(240, 240, 240)
+        }
+        table tr:hover{
+            background-color: rgb(0,0,0) !important;
+            color:rgb(255,255,255)
+        }
+    </style>
+    <table style="border=1px; border-color=rgb(222,222,222)">
+    <tbody><tr>
+<td>Country</td>
+<td>Population</td>
+<td>Score</td>
+</tr>
+<tr>
+<td>Somewhere</td>
+<td>3M</td>
+<td>25</td>
+</tr>
+<tr>
+<td>Somewhere else</td>
+<td>12M</td>
+<td>125</td>
+</tr>
+<tr>
+<td>That place</td>
+<td>23M</td>
+<td>235</td>
+</tr>
+<tr>
+<td>Somewhere</td>
+<td>3M</td>
+<td>25</td>
+</tr>
+<tr>
+<td>Somewhere else</td>
+<td>12M</td>
+<td>125</td>
+</tr>
+<tr>
+<td>That place</td>
+<td>23M</td>
+<td>235</td>
+</tr>
+<tr>
+<td>Somewhere</td>
+<td>3M</td>
+<td>25</td>
+</tr>
+<tr>
+<td>Somewhere else</td>
+<td>12M</td>
+<td>125</td>
+</tr>
+<tr>
+<td>That place</td>
+<td>23M</td>
+<td>235</td>
+</tr>
+</tbody></table>
+</body></html>

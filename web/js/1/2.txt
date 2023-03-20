@@ -1,0 +1,6 @@
+function round(num, accuracy) {
+    if (accuracy>15){
+        accuracy = 15
+    }
+    console.log(parseFloat(num.toFixed(accuracy)))
+}

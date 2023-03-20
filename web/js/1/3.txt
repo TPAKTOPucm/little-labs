@@ -1,0 +1,10 @@
+let dels = [10,7,6,3,2]
+function maxDel(num){
+    for(let i=0; i<dels.length; i++){
+        if (num % dels[i] == 0){
+            console.log("Число делится на "+dels[i])
+            return
+        }
+    }
+    console.log("Не делится")
+}

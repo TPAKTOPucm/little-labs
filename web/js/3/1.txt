@@ -1,0 +1,17 @@
+function operationsWithArray(array) {
+    let sumPrev = array[0]
+    let sumCurrent = array[0]
+    for (let i = 1; i<array.length; i++){
+        sumPrev += array[i]
+        if(array[i] % 2 == 0){
+            array[i]+=i
+            sumCurrent+=array[i]
+        } else{
+            array[i]-=i
+            sumCurrent+=array[i]
+        }
+    }
+    console.log(array)
+    console.log(sumPrev)
+    console.log(sumCurrent)
+}
