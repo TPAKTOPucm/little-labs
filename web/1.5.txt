@@ -1,4 +1,6 @@
-<html><head></head><body><h1>Nested List</h1>
+<head></head>
+<body>
+<h1>Nested List</h1>
 <ol type="I">
 <li>HTML5</li>
 <ol type="a">
@@ -32,4 +34,5 @@
         <li>summary</li>
         <li>time</li>
 </ul>
-</ol></body></html>
+</ol>
+</body>

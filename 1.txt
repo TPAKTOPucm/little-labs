@@ -2,7 +2,7 @@ import networkx as nx
 import matplotlib.pyplot as plt
 
 def minimum_spanning_tree(nodes):
-    marks = [[1, 999]] for _ in range(len(nodes))
+    marks = [[1, 999] for _ in range(len(nodes))]
     tree = []
     for i in range(len(nodes)):
         tree.append(minIndex(marks))
@@ -63,7 +63,7 @@ def getStraitMatrix(matrix):
 
 G = nx.Graph()
 
-for i in range(int(input("Введите количество узлов "))):
+for i in range(int(input("Введите количество узлов "))-1):
     for j in input("C какими вершинами соединена вершина " + str(i+1) + " ").split(" "):
         end_weigth = j.split(",")
         G.add_edge(i+1, int(end_weigth[0]), weight = int(end_weigth[1]))
