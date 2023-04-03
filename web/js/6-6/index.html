@@ -1,6 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,32 +6,32 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body onload="attachEventsListeners()">
+<body>
     <main>
         <h1>Time Converter</h1>
         <div>
             <label for="days">Days: </label>
             <input type="text" id="days">
-            <input id="daysBtn" type="button" value="Convert">
+            <input id="daysBtn" type="button" value="Convert" onclick="fromDays()">
         </div>
         <div>
             <label for="hours">Hours: </label>
             <input type="text" id="hours">
-            <input id="hoursBtn" type="button" value="Convert">
+            <input id="hoursBtn" type="button" value="Convert" onclick="fromHours()">
         </div>
         <div>
             <label for="minutes">Minutes: </label>
             <input type="text" id="minutes">
-            <input id="minutesBtn" type="button" value="Convert">
+            <input id="minutesBtn" type="button" value="Convert" onclick="fromMinutes()">
         </div>
         <div>
             <label for="seconds">Seconds: </label>
             <input type="text" id="seconds">
-            <input id="secondsBtn" type="button" value="Convert">
+            <input id="secondsBtn" type="button" value="Convert" onclick="fromSeconds()">
         </div>
     </main>
+
+
+    <script src="solution.js"></script>
+
 </body>
-
-<script src="solution.js"></script>
-
-</html>
