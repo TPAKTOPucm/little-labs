@@ -1,7 +1,7 @@
 function solve() {
    document.querySelector('#searchBtn').addEventListener('click', onClick)
    let data = document.getElementsByTagName('tbody')[0]
-   var result = document.getElementById('result')
+   let result = document.getElementById('result')
    result.style.textAlign = 'center'
    function onClick() {
       let text = document.getElementById('searchField').value
@@ -15,8 +15,5 @@ function solve() {
          }
       }
       result.innerText = num + " matches found"
-      for (el of document.getElementsByClassName('select')){
-         result.appendChild(el)
-      }
    }
 }
