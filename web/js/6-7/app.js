@@ -1,28 +1,19 @@
 function lockedProfile() {
-  const showButtons = document.querySelectorAll('button');
-
-  showButtons.forEach(button => {
+  let showButtons = document.getElementsByTagName('button')
+  for (let button of showButtons){
     button.addEventListener('click', () => {
-      const parentDiv = button.parentNode;
-      const hiddenFields = parentDiv.nextElementSibling;
-
-      if (parentDiv.querySelector('input[value="unlock"]').checked === false) {
-        return;
+      let parentDiv = button.parentNode
+      let hiddenFields = parentDiv.getElementsByTagName('div')[0]
+      if (parentDiv.querySelector('input[value="unlock"]').checked == false) {
+        return
       }
-
-      if (getComputedStyle(hiddenFields).display === 'block') {
-        return;
+      if (button.innerText == "Show more"){
+        button.innerText = "Hide it"
+        hiddenFields.style.display = 'block'
+      } else {
+        button.innerText = "Show more"
+        hiddenFields.style.display = 'none'
       }
-
-      hiddenFields.style.display = 'block';
-
-      hiddenFields.querySelector('button').addEventListener('click', () => {
-        if (parentDiv.querySelector('input[value="unlock"]').checked === false) {
-          return;
-        }
-
-        hiddenFields.style.display = 'none';
-      });
-    });
-  });
+    })
+  }
 }
