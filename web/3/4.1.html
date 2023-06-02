@@ -1,0 +1,57 @@
+<head>
+    <style> 
+    body {
+        display: flex;
+        flex-flow: row wrap;
+        align-content: stretch;
+    }
+    header {
+        width: 100%;
+        height: 14%;
+        flex-grow:3;
+    }
+    main{
+        flex-grow:2;
+        height: 55%;
+    }
+    aside{
+        flex-grow:1;
+        height: 55%;
+    }
+    footer{
+        width: 100%;
+        flex-grow:3;
+        height: 10%;
+    }
+    .container{
+          flex: auto;
+          border-radius: 5px;
+          background-color: white;
+          box-shadow: 0 0 15px rgba(0,0,0,0.3);
+          padding: 10px;
+          margin: 1%;
+    }
+    </style>
+</head>
+<body>
+    <header class = "container">
+        <p>
+            HEADER
+        </p>
+    </header>
+    <main class = "container">
+        <p>
+            MAIN
+        </p>
+    </main>
+    <aside class = "container">
+        <p>
+            ASIDE
+        </p>
+    </aside> 
+    <footer class = "container">
+        <p>
+            FOOTER
+        </p>
+    </footer>
+</body>

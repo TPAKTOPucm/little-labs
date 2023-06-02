@@ -1,0 +1,36 @@
+<html>
+
+<head>
+    <title>Введение Media Queries</title>
+    <style>
+        @media screen and (max-width: 600px) {
+            #wid {
+                display: none
+            }
+        }
+
+        @media screen and (max-height: 600px) {
+            #hei {
+                display: none
+            }
+        }
+
+        @media screen and (max-aspect-ratio: 8/5) {
+            #rat {
+                display: none
+            }
+        }
+
+        .green {
+            color: green
+        }
+    </style>
+</head>
+
+<body>
+    <p><span>MQ Width:</span> <span id="wid" class="green">Viewport width is larger than 600px</span></p>
+    <p><span>MQ Width:</span> <span id="hei" class="green">Viewport height is larger than 600px</span></p>
+    <p><span>MQ Width:</span> <span id="rat" class="green">Aspect Ratio is larger than 8/5</span></p>
+</body>
+
+</html>

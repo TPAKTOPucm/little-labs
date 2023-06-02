@@ -31,9 +31,8 @@ data_augmentation = keras.Sequential([
 
 
 model = tf.keras.models.Sequential([
-    data_augmentation,
     layers.Rescaling(1./255, input_shape=(50, 50, 3)),    
-    layers.Conv2D(16, 5, padding='same', activation='relu'),
+    layers.Conv2D(16, 7, padding='same', activation='relu'),
     layers.MaxPooling2D(),
     layers.Flatten(),
     layers.Dense(128, activation='relu'),
@@ -41,7 +40,7 @@ model = tf.keras.models.Sequential([
 ])
 model.compile(optimizer='adam', loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True), metrics=['accuracy'])
 
-hist = model.fit(train_ds, validation_data=val_ds, epochs=100)
+hist = model.fit(train_ds, validation_data=val_ds, epochs=10)
 
 acc = hist.history['accuracy']
 val_acc = hist.history['val_accuracy']
