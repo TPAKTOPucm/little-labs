@@ -27,20 +27,20 @@
 объекты коллекции без изменения ссылки на саму коллекцию. Но если вы объявите 
 коллекцию с помощью val и попытаетесь ее перезаписать, то получите ошибку 
 компиляции.
-'''kotlin
+```kotlin
 fun main() { 
 val numbers = mutableListOf("one", "two", "three", "four") 
 numbers.add("five") // this is OK 
 //numbers = mutableListOf("six", "seven") // compilation error
 }
-'''
+```
 
 ### Схема интерфейсов коллекций Kotlin:
 ![Схема](https://kiparo.com/file_uploads/blog_images/collection_200x_kiparo_com.png)
 
 MutableCollection<T> - это Collection с операциями записи, такими как add и remove.
 
-'''kotlin
+```kotlin
 fun List<String>.getShortWordsTo(shortWords: MutableList<String>, maxLength: Int) {
 this.filterTo(shortWords) { it.length <= maxLength } 
 // throwing away the articles
@@ -53,13 +53,13 @@ val shortWords = mutableListOf<String>()
 words.getShortWordsTo(shortWords, 3) 
 println(shortWords) // [ago, in, far, far]
 }
-'''
+```
 
 Элементы списка (в том числе null) могут дублироваться: список может содержать 
 любое количество одинаковых объектов. Два списка считаются равными, если они 
 имеют одинаковый размер и их элементы в одних и тех позициях структурно равны.
 
-'''kotlin
+```kotlin
 data class Person(var name: String, var age: Int) 
 fun main() { 
 val bob = Person("Bob", 31) 
@@ -69,14 +69,14 @@ println(people == people2) // true
 bob.age = 32
 println(people == people2) // false
 }
-'''
+```
 
 Set<T> хранит уникальные элементы; их порядок обычно не определён. null также 
 является уникальным элементом: Set может содержать только один null. Два 
 множества равны, если они имеют одинаковый размер и для каждого элемента 
 множества есть равный элемент в другом множестве.
 
-'''kotlin
+```kotlin
 fun main() { 
 val numbers = setOf(1, 2, 3, 4) 
 println("Number of elements: ${numbers.size}") // Number of elements: 4
@@ -85,7 +85,7 @@ println("1 is in the set")
 val numbersBackwards = setOf(4, 3, 2, 1) 
 println("The sets are equal: ${numbers == numbersBackwards}") // true
 }
-'''
+```
 
 Map<K, V> **не является** наследником интерфейса Collection; однако это один из 
 типов коллекций в Kotlin. Map хранит пары "ключ-значение" (или entries); ключи 
